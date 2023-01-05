@@ -1,0 +1,58 @@
+<style>
+  .finishedDot {
+    width: 12px;
+    height: calc(12px * 0.84375);
+
+  }
+
+  .ongoinDot {
+    width: 12px;
+    height: calc(12px * 0.84375);
+  }
+
+  .pendingDot {
+    width: 12px;
+    height: calc(12px * 0.84375);
+  }
+
+  .counter-item {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+    margin-left: 16px;
+  }
+
+  #counters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+</style>
+
+<div id="counters">
+  <!-- Tâches terminées -->
+  <div class="row">
+    <div class="counter-item">
+      <div class="finishedDot bg-success rounded-circle"></div>
+      <p class="font-weight-bold">Tâches terminées : <span id="totalFinished">3</span></p>
+    </div>
+  </div>
+
+  <!-- Tâches en cours -->
+  <div class="row">
+    <div class="counter-item">
+      <div class="ongoinDot bg-info rounded-circle"></div>
+      <p class="font-weight-bold">Tâches en cours : <span id="totalOngoing">3</span></p>
+    </div>
+  </div>
+
+  <!-- Tâches en attente -->
+  <div class="row">
+    <div class="counter-item">
+      <div class="pendingDot bg-secondary rounded-circle"></div>
+      <p class="font-weight-bold">Tâches en attente : <span id="totalPending">3</span></p>
+    </div>
+  </div>
+</div>

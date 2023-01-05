@@ -1,1 +1,25 @@
-<p>todo-form works!</p>
+  <div class="card">
+    <div class="card-body">
+      <form action="" id="todo-form">
+        <div class="form-group">
+          <input type="text" id="title" class="form-control" maxlength="255" placeholder="Titre" required>
+        </div>
+
+        <div class="form-group">
+          <select name="categorie" id="categorie" class="form-control" required>
+            <option value="1">Travail</option>
+            <option value="2">Personnel</option>
+            <option value="3">Maison</option>
+            <option value="4">Ecole</option>
+            <option value="5">Loisir</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <textarea id="description" cols="5" rows="3" class="form-control" maxlength="50" placeholder="Description"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success btn-block">Enregistrer</button>
+      </form>
+    </div>
+  </div>
