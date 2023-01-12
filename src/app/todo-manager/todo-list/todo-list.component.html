@@ -18,4 +18,4 @@
 <hr>
 
 <!-- Tâches -->
-<app-todo-item></app-todo-item>
+<app-todo-item *ngFor="let task of tasks" [task]="task" (taskEdition)="handleEdition(task)" (taskDeletion)="deleteTask(task)" (statusChange)="changeTaskStatus($event)" ></app-todo-item>
