@@ -37,8 +37,16 @@ export class TodoManagerComponent {
   }
 
   addTask(taskToAdd:Task){
-    this.taskService.addTask(taskToAdd).subscribe({next:()=>console.log(),error:(err)=> console.log(err)});
-    this.updateArray();
+    this.taskService.addTask(taskToAdd).subscribe(
+      {
+        next:()=>{
+          console.log("succès ajout");
+          this.updateArray();
+          this.toastr.success("Ajout de la tâche "+taskToAdd.title+" effectuée", "Ajout", {newestOnTop:true, closeButton:true, progressBar:true, timeOut:5000});
+        },
+        error:(err)=> console.log(err)
+      }
+    );
   }
 
   updateArray(){
@@ -50,13 +58,21 @@ export class TodoManagerComponent {
   changeTaskStatus(value:any){
     let index=this.tasks.indexOf(value);
     this.tasks[index]=value;
-    this.taskService.updateTask(value).subscribe({next:()=>console.log(),error:(err)=> console.log(err)});
-    this.updateArray();
+    this.taskService.updateTask(value).subscribe({next:()=>{console.log(); this.updateArray();},error:(err)=> console.log(err)});
   }
 
   deleteTask(taskToDelete:any){
-    this.taskService.deleteTask(taskToDelete).subscribe({next:()=>console.log(),error:(err)=> console.log(err)});
-    this.updateArray();
+    this.taskService.deleteTask(taskToDelete).subscribe(
+      {
+        next:()=>{
+          console.log("succès delete");
+          this.updateArray();
+          this.toastr.success("Suppression de la tâche "+taskToDelete.title+" effectuée", "Suppression", {newestOnTop:true, closeButton:true, progressBar:true, timeOut:5000});
+        },
+        error:(err)=> console.log(err)
+      }
+    );
+
   }
 
   editTask(value:Task){
@@ -70,10 +86,18 @@ export class TodoManagerComponent {
   handleTaskEdition(value:any){
     // console.log("handle");
     // console.log(value);
-    this.taskService.updateTask(value).subscribe({next:()=>console.log(),error:(err)=> console.log(err)});
-    this.updateArray();
-    this.taskToEdit=undefined;
-    this.toastr.success("Modification de la tâche "+value.title+" effectuée", "Modification", {newestOnTop:true, closeButton:true, progressBar:true, timeOut:5000});
-    this.router.navigate([""]);
+    this.taskService.updateTask(value).subscribe(
+      {
+        next:()=>{
+          console.log("succès edit");
+          this.updateArray();
+          this.taskToEdit=undefined;
+          this.toastr.success("Modification de la tâche "+value.title+" effectuée", "Modification", {newestOnTop:true, closeButton:true, progressBar:true, timeOut:5000});
+          this.router.navigate([""]);
+        },
+        error:(err)=> console.log(err)
+      }
+    );
+
   }
 }
