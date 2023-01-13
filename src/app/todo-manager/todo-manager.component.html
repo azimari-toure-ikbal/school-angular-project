@@ -1,0 +1,36 @@
+<style>
+  .separator {
+    margin: 8rem;
+  }
+
+</style>
+
+<nav class="navbar navbar-light bg-light">
+  <div class="container">
+    <a href="#" class="navbar-brand font-weight-bold">{{ title }}</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row my-5">
+
+    <!-- Formulaire -->
+    <div class="col-md-4">
+      <app-todo-form (taskToAdd)="addTask($event)" (taskToEdit)="handleTaskEdition($event)" [task]="taskToEdit" ></app-todo-form>
+    </div>
+
+    <div class="col-md-8">
+
+      <!-- Filtre et Recherche -->
+      <app-todo-list-controls (filterChange)="filterByCategory($event)" (searchEvent)="searchTask($event)" ></app-todo-list-controls>
+      <span class="separator"></span>
+
+      <!-- Compteurs des tâches -->
+      <app-counters  [tasks]="tasks" ></app-counters>
+      <hr>
+
+      <!-- Liste des tâches -->
+      <app-todo-list [tasks]="tasks" (taskEdition)="editTask($event)" (statusChange)="changeTaskStatus($event)" (taskDeletion)="deleteTask($event)" ></app-todo-list>
+    </div>
+  </div>
+</div>

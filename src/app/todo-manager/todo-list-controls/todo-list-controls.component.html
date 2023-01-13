@@ -1,0 +1,37 @@
+<style>
+  .searchBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+</style>
+
+<div id="filters">
+  <div class="row offset-md-0 offset-lg-6 mt-4 mt-md-0">
+    <!-- Recherche -->
+    <div class="col-6">
+      <div class="searchBar">
+        <a routerLink="/search/"><img src="../../assets/search.svg" alt="search" width="32" height="32" (click)="handleSearch(searchContent)"  ></a>
+        <input type="text" id="search" class="form-control" (input)="handleSearch(searchContent)" placeholder="Rechercher" #searchContent>
+      </div>
+    </div>
+
+    <!-- Filtres -->
+    <div class="col-6">
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Filtrer par catégorie
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" routerLink="categorie/" (click)="handle(lien)" #lien >Tout</a>
+          <a class="dropdown-item" routerLink="categorie/travail" (click)="handle(lient)" #lient >Travail</a>
+          <a class="dropdown-item" routerLink="categorie/personnel" (click)="handle(lienp)" #lienp >Personnel</a>
+          <a class="dropdown-item" routerLink="categorie/maison" (click)="handle(lienm)" #lienm >Maison</a>
+          <a class="dropdown-item" routerLink="categorie/ecole" (click)="handle(liene)" #liene >Ecole</a>
+          <a class="dropdown-item" routerLink="categorie/loisir" (click)="handle(lienl)" #lienl >Loisir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
