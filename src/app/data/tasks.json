@@ -1,0 +1,102 @@
+{
+  "tasks": [
+    {
+      "title": "Terminer le rapport de fin de semaine",
+      "category": "travail",
+      "desc": "",
+      "id": 1,
+      "status": "en cours"
+    },
+    {
+      "title": "Réserver une table au restaurant pour vendredi soir",
+      "category": "loisir",
+      "desc": "Trouver un restaurant sympa et réserver une table pour vendredi soir à 19h.",
+      "id": 2,
+      "status": "terminé"
+    },
+    {
+      "title": "Faire les courses pour la semaine",
+      "category": "maison",
+      "desc": "Préparer une liste de courses et aller au supermarché avant la fin de la journée.",
+      "id": 3,
+      "status": "en attente"
+    },
+    {
+      "id": 4,
+      "title": "Envoyer un email au professeur",
+      "desc": "Rédiger et envoyer un email au professeur pour lui poser une question sur le devoir à rendre la semaine prochaine.",
+      "status": "terminé",
+      "category": "école"
+    },
+    {
+      "id": 5,
+      "title": "Prendre rendez-vous chez le médecin",
+      "desc": "Appeler le cabinet du médecin et prendre rendez-vous pour un suivi médical.",
+      "status": "en attente",
+      "category": "personnel"
+    },
+    {
+      "id": 6,
+      "title": "Faire du sport",
+      "desc": "Aller courir ou faire une séance de sport à la salle de gym.",
+      "status": "terminé",
+      "category": "personnel"
+    },
+    {
+      "id": 7,
+      "title": "Nettoyer le garage",
+      "desc": "Passer l'aspirateur et ranger le garage pour que tout soit bien organisé.",
+      "status": "en attente",
+      "category": "maison"
+    },
+    {
+      "id": 8,
+      "title": "Préparer le dîner",
+      "desc": "Choisir une recette, acheter les ingrédients et préparer le dîner pour ce soir.",
+      "status": "en attente",
+      "category": "maison"
+    },
+    {
+      "id": 9,
+      "title": "Appeler la banque",
+      "desc": "Contacter la banque pour obtenir des informations sur un compte bancaire.",
+      "status": "en attente",
+      "category": "travail"
+    },
+    {
+      "id": 12,
+      "title": "Organiser une fête d'anniversaire",
+      "desc": "Prévoir le menu, inviter les amis et acheter les décorations pour une fête d'anniversaire.",
+      "status": "en attente",
+      "category": "personnel"
+    },
+    {
+      "id": 13,
+      "title": "Réviser pour l'examen de mathématiques",
+      "desc": "Passer en revue les cours de mathématiques et faire des exercices pour se préparer à l'examen de la semaine prochaine.",
+      "status": "en cours",
+      "category": "personnel"
+    },
+    {
+      "title": "Ranger mes affaires",
+      "category": "maison",
+      "desc": "",
+      "status": "en attente",
+      "id": 14
+    },
+    {
+      "title": "Créer un site web ",
+      "category": "personnel",
+      "desc": "",
+      "id": 15,
+      "status": "en attente"
+    },
+    {
+      "title": "Voici une autre tâche",
+      "category": "école",
+      "desc": "gsdgsd",
+      "status": "en cours",
+      "id": 16
+    }
+  ]
+}
