@@ -1,42 +1,99 @@
-  <div class="card">
-    <div class="card-body">
-      <form (ngSubmit)="handleAdd(myForm)" #myForm="ngForm" id="todo-form">
+<div class="card">
+  <div class="card-body">
+    <form (ngSubmit)="handleAdd(myForm)" #myForm="ngForm" id="todo-form">
+      <div class="form-group" style="display: none" *ngIf="task !== undefined">
+        <input
+          type="text"
+          ngModel
+          name="id"
+          [ngModel]="task.id"
+          #id="ngModel"
+        />
+      </div>
 
-        <div class="form-group" style="display: none;" *ngIf="task!==undefined">
-          <input type="text" ngModel name="id" [ngModel]=" task.id " #id="ngModel" >
+      <div class="form-group" style="display: none" *ngIf="task !== undefined">
+        <input
+          type="text"
+          ngModel
+          name="status"
+          [ngModel]="task.status"
+          #status="ngModel"
+        />
+      </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          id="title"
+          class="form-control"
+          minlength="3"
+          maxlength="70"
+          placeholder="Titre"
+          required
+          ngModel
+          name="title"
+          #title="ngModel"
+          [ngModel]="task !== undefined ? task.title : ''"
+        />
+        <div *ngIf="title.invalid && (title.dirty || title.touched)">
+          <span style="color: red" *ngIf="title.errors?.['required']"
+            >Le titre est obligatoire</span
+          >
+          <span style="color: red" *ngIf="title.errors?.['minlength']"
+            >Le titre doit faire au moins 3 caractères</span
+          >
         </div>
+      </div>
 
-        <div class="form-group" style="display: none;" *ngIf="task!==undefined">
-          <input type="text" ngModel name="status" [ngModel]=" task.status " #status="ngModel" >
+      <div class="form-group">
+        <select
+          name="category"
+          id="categorie"
+          class="form-control"
+          required
+          ngModel
+          #category="ngModel"
+          [ngModel]="task !== undefined ? task.category : ''"
+        >
+          <option value="" disabled selected hidden>Catégorie</option>
+          <option value="travail">Travail</option>
+          <option value="personnel">Personnel</option>
+          <option value="maison">Maison</option>
+          <option value="école">Ecole</option>
+          <option value="loisir">Loisir</option>
+        </select>
+
+        <div *ngIf="category.invalid && (category.dirty || category.touched)">
+          <span style="color: red" *ngIf="category.errors?.['required']"
+            >La t&acirc;che doit avoir une cat&eacute;gorie</span
+          >
         </div>
+      </div>
 
-        <div class="form-group">
-          <input type="text" id="title" class="form-control" minlength="3" maxlength="70" placeholder="Titre" required ngModel name="title" #title="ngModel" [ngModel]=" task!==undefined ? task.title : '' " >
-          <div *ngIf="title.invalid && (title.dirty || title.touched)">
-            <span style="color: red;" *ngIf="title.errors?.['required']" >Le titre est obligatoire</span>
-            <span style="color: red;" *ngIf="title.errors?.['minlength']" >Le titre doit faire au moins 3 caractères</span>
-          </div>
-        </div>
+      <div class="form-group">
+        <textarea
+          name="desc"
+          #desc="ngModel"
+          id="description"
+          cols="5"
+          rows="3"
+          class="form-control"
+          maxlength="150"
+          placeholder="Description"
+          ngModel
+          [ngModel]="
+            task !== undefined && task.desc != undefined ? task.desc : ''
+          "
+        ></textarea>
+      </div>
 
-        <div class="form-group">
-          <select name="category" id="categorie" class="form-control" required ngModel #category="ngModel" [ngModel]=" task!==undefined ? task.category : '' " >
-            <option value="travail">Travail</option>
-            <option value="personnel">Personnel</option>
-            <option value="maison">Maison</option>
-            <option value="école">Ecole</option>
-            <option value="loisir">Loisir</option>
-          </select>
-
-          <div *ngIf="category.invalid && (category.dirty || category.touched) " >
-            <span style="color: red;" *ngIf="category.errors?.['required']" >La t&acirc;che doit avoir une cat&eacute;gorie</span>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <textarea name="desc" #desc="ngModel" id="description" cols="5" rows="3" class="form-control" maxlength="150" placeholder="Description" ngModel [ngModel]=" (task!==undefined && task.desc!=undefined) ? task.desc : '' " ></textarea>
-        </div>
-
-        <button type="submit" [disabled]="myForm.invalid " class="btn btn-success btn-block">Enregistrer</button>
-      </form>
-    </div>
+      <button
+        type="submit"
+        [disabled]="myForm.invalid"
+        class="btn btn-success btn-block"
+      >
+        Enregistrer
+      </button>
+    </form>
   </div>
+</div>
